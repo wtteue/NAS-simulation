@@ -1,0 +1,105 @@
+{
+    "prepare_queue": {
+        "installed": [],
+        "uninstalled": []
+    },
+    "config_munge": {
+        "files": {
+            "res/xml/config.xml": {
+                "parents": {
+                    "/*": [
+                        {
+                            "xml": "<feature name=\"Whitelist\"><param name=\"android-package\" value=\"org.apache.cordova.whitelist.WhitelistPlugin\" /><param name=\"onload\" value=\"true\" /></feature>",
+                            "count": 1
+                        },
+                        {
+                            "xml": "<feature name=\"NfcPlugin\"><param name=\"android-package\" value=\"com.chariotsolutions.nfc.plugin.NfcPlugin\" /><param name=\"onload\" value=\"true\" /></feature>",
+                            "count": 1
+                        },
+                        {
+                            "xml": "<feature name=\"IntelSecurity\"><param name=\"android-package\" value=\"com.intel.security.Services\" /></feature>",
+                            "count": 1
+                        },
+                        {
+                            "xml": "<feature name=\"SecureStorage\"><param name=\"android-package\" value=\"com.crypho.plugins.SecureStorage\" /></feature>",
+                            "count": 1
+                        }
+                    ]
+                }
+            },
+            "AndroidManifest.xml": {
+                "parents": {
+                    "/manifest": [
+                        {
+                            "xml": "<uses-permission android:name=\"android.permission.NFC\" />",
+                            "count": 1
+                        },
+                        {
+                            "xml": "<uses-feature android:name=\"android.hardware.nfc\" android:required=\"false\" />",
+                            "count": 1
+                        }
+                    ]
+                }
+            }
+        }
+    },
+    "installed_plugins": {
+        "cordova-plugin-whitelist": {
+            "PACKAGE_NAME": "com.example.processsimulator"
+        },
+        "phonegap-nfc": {
+            "PACKAGE_NAME": "com.example.processsimulator"
+        },
+        "com-intel-security": {
+            "PACKAGE_NAME": "com.example.processsimulator"
+        },
+        "cordova-plugin-secure-storage": {
+            "PACKAGE_NAME": "com.example.processsimulator"
+        }
+    },
+    "dependent_plugins": {},
+    "modules": [
+        {
+            "file": "plugins/cordova-plugin-whitelist/whitelist.js",
+            "id": "cordova-plugin-whitelist.whitelist",
+            "runs": true
+        },
+        {
+            "file": "plugins/phonegap-nfc/www/phonegap-nfc.js",
+            "id": "phonegap-nfc.NFC",
+            "runs": true
+        },
+        {
+            "file": "plugins/com-intel-security/www/appSecurityApi.js",
+            "id": "com-intel-security.Services",
+            "clobbers": [
+                "intel.security"
+            ]
+        },
+        {
+            "file": "plugins/com-intel-security/www/q-1/q.js",
+            "id": "com-intel-security.Q",
+            "clobbers": [
+                "Q"
+            ]
+        },
+        {
+            "file": "plugins/cordova-plugin-secure-storage/www/securestorage.js",
+            "id": "cordova-plugin-secure-storage.SecureStorage",
+            "clobbers": [
+                "SecureStorage"
+            ]
+        },
+        {
+            "file": "plugins/cordova-plugin-secure-storage/www/sjcl_ss.js",
+            "id": "cordova-plugin-secure-storage.sjcl_ss",
+            "runs": true
+        }
+    ],
+    "plugin_metadata": {
+        "cordova-plugin-whitelist": "1.2.1",
+        "phonegap-nfc": "0.6.6",
+        "com-intel-security": "2.0.0",
+        "cordova-plugin-secure-storage": "2.2.1"
+    }
+}
